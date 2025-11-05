@@ -1,0 +1,782 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Courier;
+	panose-1:2 7 3 9 2 2 5 2 4 4;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Aptos;
+	panose-1:2 11 0 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:"Helvetica Neue";
+	panose-1:2 0 5 3 0 0 0 2 0 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+.MsoChpDefault
+	{font-family:"Aptos",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink="#96607D" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<table class=MsoNormalTable border=0 cellpadding=0 width=1116 style='width:
+ 837.2pt;background:white'>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>rlm_SCAD_DPD</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal align=right style='margin-bottom:0in;text-align:right;
+  line-height:normal'><span style='font-size:10.0pt;font-family:"Helvetica Neue";
+  color:black'>(preview) R Documentation</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:24.0pt;font-family:"Helvetica Neue";color:black'>Robust Linear
+Model Fitting Using SCAD Penalty and DPD Estimator</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:13.5pt;font-family:"Helvetica Neue";color:#595959'>Description</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>rlm_SCAD_DPD
+is used to fit a robust linear (regression) model (rlm) using the
+SCAD-penalized density power divergent (DPD) estimator for high-dimensional
+data.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:13.5pt;font-family:"Helvetica Neue";color:#595959'>Usage</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>rlm_SCAD_DPD</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>X</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#0077AA'>NULL</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> Y</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#0077AA'>NULL</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> data</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#0077AA'>NULL</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> Y_index</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#0077AA'>NULL</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> X_test</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#0077AA'>NULL</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>             Y_test</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#0077AA'>NULL</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> newdata</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#0077AA'>NULL</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> validation_prop</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#0077AA'>NULL</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> trim</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>0.05</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>             gamma</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>3.7</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> SIS_prop </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>0.25</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> SIS_rho.min</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#0077AA'>NULL</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>             alpha</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>seq</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>0</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>0.2</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> length.out</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>21</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>),</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> alpha_robust</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>0.15</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>             verbose </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>TRUE</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> tol</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>1e-4</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> maxIter</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>100</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> n.lambda</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>100</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>             seed</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#0077AA'>NULL</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:13.5pt;font-family:"Helvetica Neue";color:#595959'>Arguments</span></b></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='background:white'>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>X</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>input
+  matrix, of dimension n x p; each row is an observation vector.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>Y</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>response
+  variable.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>data</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>data frame
+  containing the full data.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>Y_index</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>(scalar)
+  the column index or (character) column name for Y in data, other columns in
+  the data will be in X.</span></p>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>Either (Y,
+  X) or (data, Y_index) must be provided. (Y, X) will be in (vector, matrix)
+  format (data, Y_index) will be in (data frame, scalar, or character) format.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>X_test</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>test data
+  for input matrix.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>Y_test</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>test data
+  for response variable.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>newdata</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>(data
+  frame) new test data. Either (Y_test, X_test) or newdata may be provided
+  (optional)</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>validation_prop</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>proportion
+  of test data for the validation method. If Y_test, X_test, and
+  validation_prop are all NULL, the training mean absolute deviation (MAD) and
+  trimmed root mean prediction error (RMPE) are calculated. If newdata is
+  provided, validation_prop is ignored.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>trim</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>trimming
+  proportion for the trimmed RMPE.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>gamma</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>SCAD
+  parameter.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>SIS_prop</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>proportion
+  (q) of variables relative to the sample size (n) to be used (i.e, n*q) after
+  sure independence screening (SIS).</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>SIS_rho.min</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>threshold
+  for correlation coefficient for SIS screening.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>alpha</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>(vector)
+  set of DPD parameters.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>alpha_robust</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>robust
+  alpha for estimating sigma_hat for the RCp (needs tuning).</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>n.lambda</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>maximum
+  number of lambda values (penalty parameter).</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>verbose</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>logical
+  value for printing important information.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>tol</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>tolerance
+  limit for convergence of an MDPDE.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>maxIter</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>maximum
+  number of steps for convergence of an MDPDE.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top style='padding:.75pt 9.0pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>seed</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>sets seed
+  if CV is used</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:13.5pt;font-family:"Helvetica Neue";color:#595959'>Value</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>A list
+containing summary and beta</span></p>
+
+<table class=MsoNormalTable border=0 cellpadding=0 style='background:white'>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>summary</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>Summary
+  table for the robust AIC and Cp. The optimum DPD parameter is selected
+  adaptively using the H-score.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+  style='font-size:10.0pt;font-family:Courier;color:black'>beta</span></p>
+  </td>
+  <td style='padding:.75pt .75pt .75pt .75pt'>
+  <p class=MsoNormal style='margin-bottom:4.5pt;line-height:normal'><span
+  style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>A (sparse)
+  matrix containing estimated regression coefficient (beta) based on the robust
+  AIC and Cp.</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:13.5pt;font-family:"Helvetica Neue";color:#595959'>Warning</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>It is an
+initial version of the function, updated on November 5, 2025. Users are
+requested to take the final published version of the code.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:13.5pt;font-family:"Helvetica Neue";color:#595959'>Note</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>Required
+packages: MASS, expm, Matrix.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>The full
+search may take a long time to run. The number of elements in the 'alpha' input
+may be reduced, and the value of 'tol' may be increased to speed up
+computation.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>alpha_robust
+= 0.15 or 0.2 is a good starting value, but it may be tuned based on the
+optimum alpha from the output summary. SIS_prop may also be tuned.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:13.5pt;font-family:"Helvetica Neue";color:#595959'>Author(s)</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>Abhijit
+Mandal, University of Texas at El Paso, USA (Email: amandal@utep.edu)</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:13.5pt;font-family:"Helvetica Neue";color:#595959'>References</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>Mandal, A.
+and Ghosh, S. Robust Variable Selection Criteria for the Penalized Regression.
+Journal of Multivariate Analysis (under review).</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:13.5pt;font-family:"Helvetica Neue";color:#595959'>See Also</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>See
+Also&nbsp;</span><span style='color:black'><a
+href="http://127.0.0.1:23639/help/MASS%3A%3Arlm"><span style='font-size:10.0pt;
+font-family:Courier'>MASS::rlm</span></a></span><span style='font-size:10.0pt;
+font-family:"Helvetica Neue";color:black'>,&nbsp;</span><span style='font-size:
+10.0pt;font-family:Courier;color:black'><a
+href="http://127.0.0.1:23639/help/ncvreg%3A%3Ancvreg">ncvreg::ncvreg</a></span><span
+style='font-size:10.0pt;font-family:"Helvetica Neue";color:black'>.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:13.5pt;font-family:"Helvetica Neue";color:#595959'>Examples</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='color:black'><a href="http://127.0.0.1:23639/Example/rlm_SCAD_DPD"><span
+style='font-size:10.0pt;font-family:"Helvetica Neue"'>Run examples</span></a></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:slategray'># Training Data</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>library</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>MASS</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>n </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>250</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>;</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> p </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>500</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>;</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> sigma </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>2</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>;</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> rho </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>0.8</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>Sigma </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> rho</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>^</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>abs</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>outer</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>1</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>:</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>p</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>1</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>:</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>p</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#669900'>&quot;-&quot;</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>))</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>X </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> mvrnorm</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>n</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> rep</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>0</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> p</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>),</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> Sigma</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>epsilon </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> rnorm</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>n</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> sd </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> sigma</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>epsilon</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>[</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>sample</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>n</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>12</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)]</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> rnorm</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>12</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> mean</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>10</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:slategray'># outliers</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>beta </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>-</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>1</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>^</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>sample</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>1</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>:</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>2</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> p</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> replace </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>TRUE</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>*</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> runif</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>p</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>1</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>2</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>beta</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>[</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>sample</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>p</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> p</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>*</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>0.98</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)]</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>0</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>beta </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> c</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>runif</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>1</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>-</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>5</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>5</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>),</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> beta</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:slategray'># adds intercept</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>Y </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> beta</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>[</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>1</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>]</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>+</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> X </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>%*%</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> beta</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>[</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>-</span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>1</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>]</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>+</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> epsilon</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:slategray'># Penalized DPD
+Fit</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>DPD_fit </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> rlm_SCAD_DPD</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>Y</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>Y</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> X</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>X</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>DPD_fit</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>$</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>summary</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>non_zero_beta </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> cbind</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>beta</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> DPD_fit</span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>$</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>beta</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:black'>colnames</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>non_zero_beta</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> c</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:#669900'>&quot;True
+beta&quot;</span><span style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#669900'>&quot;Robust
+AIC&quot;</span><span style='font-size:10.0pt;font-family:Courier;color:#999999'>,</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#669900'>&quot;Robust
+Cp&quot;</span><span style='font-size:10.0pt;font-family:Courier;color:#999999'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;background:white'><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>non_zero_beta </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> non_zero_beta</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>[</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>rowSums</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>abs</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>(</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'>non_zero_beta</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>))</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#9A6E3A'>!=</span><span
+style='font-size:10.0pt;font-family:Courier;color:black'> </span><span
+style='font-size:10.0pt;font-family:Courier;color:#990055'>0</span><span
+style='font-size:10.0pt;font-family:Courier;color:#999999'>,])</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
