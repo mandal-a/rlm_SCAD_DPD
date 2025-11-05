@@ -1,0 +1,116 @@
+---
+title: ""
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+|     |     |
+| --- | --- |
+| rlm\_SCAD\_DPD |  R Documentation |
+
+## Robust Linear Model Fitting Using SCAD Penalty and DPD Estimator
+
+**Description**
+
+rlm\_SCAD\_DPD is used to fit a robust linear (regression) model (rlm) using the SCAD-penalized density power divergent (DPD) estimator for high-dimensional data.
+
+**Usage**
+
+
+```{r, eval=FALSE}
+rlm_SCAD_DPD(X=NULL, Y=NULL, data=NULL, Y_index=NULL, X_test=NULL,
+             Y_test=NULL, newdata=NULL, validation_prop=NULL, 
+             trim=0.05, gamma=3.7, SIS_prop = 0.25, SIS_rho.min=NULL, 
+             alpha=seq(0, 0.2, length.out=21), alpha_robust=0.15, 
+             verbose = TRUE, tol=1e-4, maxIter=100, n.lambda=100,
+             seed=NULL)
+```
+
+
+**Arguments**
+
+|     |     |
+| --- | --- |
+| X   | input matrix, of dimension n x p; each row is an observation vector. |
+| Y   | response variable. |
+| data | data frame containing the full data. |
+| Y\_index | (scalar) the column index or (character) column name for Y in data, other columns in the data will be in X.<br><br>Either (Y, X) or (data, Y\_index) must be provided. (Y, X) will be in (vector, matrix) format (data, Y\_index) will be in (data frame, scalar, or character) format. |
+| X\_test | test data for input matrix. |
+| Y\_test | test data for response variable. |
+| newdata | (data frame) new test data. Either (Y\_test, X\_test) or newdata may be provided (optional) |
+| validation\_prop | proportion of test data for the validation method. If Y\_test, X\_test, and validation\_prop are all NULL, the training mean absolute deviation (MAD) and trimmed root mean prediction error (RMPE) are calculated. If newdata is provided, validation\_prop is ignored. |
+| trim | trimming proportion for the trimmed RMPE. |
+| gamma | SCAD parameter. |
+| SIS\_prop | proportion (q) of variables relative to the sample size (n) to be used (i.e, n\*q) after sure independence screening (SIS). |
+| SIS\_rho.min | threshold for correlation coefficient for SIS screening. |
+| alpha | (vector) set of DPD parameters. |
+| alpha\_robust | robust alpha for estimating sigma\_hat for the RCp (needs tuning). |
+| n.lambda | maximum number of lambda values (penalty parameter). |
+| verbose | logical value for printing important information. |
+| tol | tolerance limit for convergence of an MDPDE. |
+| maxIter | maximum number of steps for convergence of an MDPDE. |
+| seed | sets seed if CV is used |
+
+**Value**
+
+A list containing summary and beta
+
+|     |     |
+| --- | --- |
+| summary | Summary table for the robust AIC and Cp. The optimum DPD parameter is selected adaptively using the H-score. |
+| beta | A (sparse) matrix containing estimated regression coefficient (beta) based on the robust AIC and Cp. |
+
+**Warning**
+
+It is an initial version of the function, updated on November 5, 2025. Users are requested to take the final version of the code after it is published.
+
+**Note**
+
+Required packages: MASS, expm, Matrix.
+
+The full search may take a long time to run. The number of elements in the 'alpha' input may be reduced, and the value of 'tol' may be increased to speed up computation.
+
+alpha\_robust = 0.15 or 0.2 is a good starting value, but it may be tuned based on the optimum alpha from the output summary. SIS\_prop may also be tuned.
+
+**Author(s)**
+
+Abhijit Mandal, University of Texas at El Paso, USA (Email: amandal@utep.edu)
+
+**References**
+
+Mandal, A. and Ghosh, S. Robust Variable Selection Criteria for the Penalized Regression. Journal of Multivariate Analysis (under review).
+
+**See Also**
+
+See Also MASS::rlm, ncvreg::ncvreg.
+
+**Examples**
+
+Run examples
+
+```{r, eval=FALSE}
+library(MASS)
+n = 250; p = 500; sigma = 2; rho = 0.8
+Sigma = rho^abs(outer(1:p, 1:p, "-"))
+X = mvrnorm(n, rep(0, p), Sigma)
+epsilon = rnorm(n, sd = sigma)
+epsilon[sample(n, 12)] = rnorm(12, mean=10) # outliers
+beta = (-1)^sample(1:2, p, replace = TRUE) * runif(p, 1, 2)
+beta[sample(p, p*0.98)] = 0
+beta = c(runif(1, -5, 5), beta) # adds intercept
+Y = beta[1] + X %*% beta[-1] + epsilon
+
+# Penalized DPD Fit
+DPD_fit = rlm_SCAD_DPD(Y=Y, X=X)
+DPD_fit$summary
+
+non_zero_beta = cbind(beta, DPD_fit$beta)
+colnames(non_zero_beta) = c("True beta", "Robust AIC", "Robust Cp")
+(non_zero_beta = non_zero_beta[rowSums(abs(non_zero_beta)) != 0,])
+```
+
