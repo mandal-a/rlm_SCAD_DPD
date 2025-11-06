@@ -10,7 +10,7 @@
 
 **Description**
 
-rlm\_SCAD\_DPD is used to fit a robust linear (regression) model (rlm)
+rlm\_SCAD\_DPD fits a robust linear (regression) model (rlm)
 using the SCAD-penalized density power divergent (DPD) estimator for
 high-dimensional data.
 
